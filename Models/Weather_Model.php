@@ -62,10 +62,14 @@ class Weather_Model
             
         ];
 
+        if(!$this->db->tableExists()){
+
+        }
         //insert data into table
         $sql = "INSERT INTO weather_report (city_id, city_name, temp, feels_like, min_temp, max_temp, pressure, humidity, visibility, weather, weather_description) VALUES (:city_id, :city_name, :temp, :feels_like, :min_temp, :max_temp, :pressure, :humidity, :visibility, :weather, :weather_description)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute($data);
+
     }
 }
 
